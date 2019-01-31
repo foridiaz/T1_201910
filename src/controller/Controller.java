@@ -3,7 +3,7 @@ package controller;
 import model.data_structures.ArregloDinamico;
 import model.data_structures.IArregloDinamico;
 
-public class Controller {
+public class Controller<T extends Comparable<T>> {
 
 	/* Instancia del Modelo del mundo */
 	private static IArregloDinamico modelo = new ArregloDinamico(7);
@@ -21,7 +21,7 @@ public class Controller {
 	 * Requerimiento agregar elemento
 	 * @param dato Dato a agregar al final del arreglo
 	 */
-	public static void agregar(String dato)
+	public void agregar(T dato)
 	{
 		modelo.agregar(dato);
 	}
@@ -31,9 +31,9 @@ public class Controller {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public static String buscar(String dato)
+	public T buscar(T dato)
 	{
-		return modelo.buscar(dato);
+		return (T) modelo.buscar(dato);
 	}
 	
 	/**
@@ -41,9 +41,9 @@ public class Controller {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public static String eliminar(String dato)
+	public T eliminar(T dato)
 	{
-		return modelo.eliminar(dato);
+		return (T)modelo.eliminar(dato);
 	}
 	
 	

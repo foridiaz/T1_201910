@@ -6,13 +6,13 @@ import java.util.Scanner;
 import controller.Controller;
 import model.data_structures.IArregloDinamico;;
 
-public class MVCExample {
+public class MVCExample<T extends Comparable <T>> {
 
 		private static void printMenu(){
-			System.out.println("1. Crear Arreglo Dinamico de Strings");
-			System.out.println("2. Agregar String");
-			System.out.println("3. Buscar String");
-			System.out.println("4. Eliminar String");
+			System.out.println("1. Crear Arreglo Dinamico de Generics");
+			System.out.println("2. Agregar Generics");
+			System.out.println("3. Buscar Generics");
+			System.out.println("4. Eliminar Generics");
 			System.out.println("5. Exit");
 			System.out.println("Dar el numero de opcion a resolver, luego oprimir tecla Return: (e.g., 1):");
 		}
@@ -21,8 +21,8 @@ public class MVCExample {
 
 			Scanner lector = new Scanner(System.in);
 			boolean fin = false;
-			String dato = "";
-			String respuesta = "";
+			T dato = null;
+			T respuesta = null;
 
 			while( !fin ){
 				printMenu();
