@@ -1,5 +1,7 @@
 package model.data_structures;
 
+import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
+
 /**
  * 2019-01-23
  * Estructura de Datos Arreglo Dinamico de Strings.
@@ -56,18 +58,47 @@ public class ArregloDinamico implements IArregloDinamico {
 
 		public String darElemento(int i) {
 			// TODO implementar
-			return null;
+			String buscado=null;   
+			for(int j=0; j<tamanoAct && buscado==null;j++) {
+				if(j==i) {
+					buscado=elementos[j];
+				}
+			}
+			return buscado;
 		}
 
 		public String buscar(String dato) {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
+			int inicio=0;
+			int fin=elementos.length-1;
+			String buscado=null; 
+			while (inicio<=fin && buscado==null) {
+				int mitad=(inicio+fin)/2;
+				if(dato.compareTo(elementos[mitad])==0){
+					buscado=elementos[mitad];
+				}else if(dato.compareTo(elementos[mitad])>0) {
+					inicio=mitad+1;
+				}else {
+					fin=mitad-1;
+				}
+			}
+			return buscado; 
 		}
 
 		public String eliminar(String dato) {
 			// TODO implementar
 			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
+			String aEliminar=null;
+			for (int i=0; i<elementos.length; i++) {
+				if(elementos[i].compareTo(dato)==0) {
+					aEliminar=elementos[i];
+					for(int j=i; j<elementos.length-1; j++) {
+						elementos[j]=elementos[j+1];
+					}
+				}
+			}
+			tamanoAct--;
+			return aEliminar;
 		}
 }
